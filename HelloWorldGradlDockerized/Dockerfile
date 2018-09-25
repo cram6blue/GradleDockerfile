@@ -12,14 +12,15 @@ RUN apt-get -y update && apt-get -y install git
 
 RUN mkdir /marc\
     && cd /marc \
-    && git clone https://github.com/cram6blue/DockerfileGradle
+    && git clone https://github.com/cram6blue/GradleDockerfile
     
  
 #Set working directory
 WORKDIR /marc
 
 	
-RUN cd /marc/DockerfileGradle/HelloWorldGradlDockerized \
+RUN cd /marc/GradleDockerfile/HelloWorldGradlDockerized \
     && gradle build \
-    && cd /marc/DockerfileGradle/HelloWorldGradlDockerized/build/libs \
+    && cd build \
+    && cd libs \
     && java -jar HelloWorldGradlDockerized.jar
